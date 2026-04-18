@@ -16,23 +16,12 @@ export default function Dashboard() {
     return () => { supabase.removeChannel(channel) }
   }, [])
 
-  async function load() {
-  // Pega o início e fim do dia no horário de Brasília (UTC-3)
-  const now = new Date()
-  
-  const todayStart = new Date(now)
-  todayStart.setHours(0, 0, 0, 0)
-  // Adiciona 3 horas para converter de Brasília para UTC
-  todayStart.setTime(todayStart.getTime() + (3 * 60 * 60 * 1000))
-
-  const todayEnd = new Date(todayStart)
-  todayEnd.setTime(todayStart.getTime() + (24 * 60 * 60 * 1000))
-
+async function load() {
   const { data } = await supabase
     .from('appointments')
     .select(`*, services(name, price_cents, duration_min), barbers(name), barbershops(name)`)
-    .gte('scheduled_at', todayStart.toISOString())
-    .lt('scheduled_at', todayEnd.toISOString())
+    .gte('scheduled_at', '2026-04-18T00:00:00+00:00')
+    .lt('scheduled_at', '2026-04-19T00:00:00+00:00')
     .order('scheduled_at')
 
   setAppointments(data || [])
