@@ -17,21 +17,27 @@ export default function Dashboard() {
   }, [])
 
   async function load() {
-    const today = new Date()
-    today.setHours(0, 0, 0, 0)
-    const tomorrow = new Date(today)
-    tomorrow.setDate(today.getDate() + 1)
+  // Pega o início e fim do dia no horário de Brasília (UTC-3)
+  const now = new Date()
+  
+  const todayStart = new Date(now)
+  todayStart.setHours(0, 0, 0, 0)
+  // Adiciona 3 horas para converter de Brasília para UTC
+  todayStart.setTime(todayStart.getTime() + (3 * 60 * 60 * 1000))
 
-    const { data } = await supabase
-      .from('appointments')
-      .select(`*, services(name, price_cents, duration_min), barbers(name), barbershops(name)`)
-      .gte('scheduled_at', today.toISOString())
-      .lt('scheduled_at', tomorrow.toISOString())
-      .order('scheduled_at')
+  const todayEnd = new Date(todayStart)
+  todayEnd.setTime(todayStart.getTime() + (24 * 60 * 60 * 1000))
 
-    setAppointments(data || [])
-    setLoading(false)
-  }
+  const { data } = await supabase
+    .from('appointments')
+    .select(`*, services(name, price_cents, duration_min), barbers(name), barbershops(name)`)
+    .gte('scheduled_at', todayStart.toISOString())
+    .lt('scheduled_at', todayEnd.toISOString())
+    .order('scheduled_at')
+
+  setAppointments(data || [])
+  setLoading(false)
+}
 
   async function updateStatus(id: string, status: string) {
     await supabase.from('appointments').update({ status }).eq('id', id)
