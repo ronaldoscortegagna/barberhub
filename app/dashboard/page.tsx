@@ -17,13 +17,22 @@ export default function Dashboard() {
   }, [])
 
 async function load() {
-  const { data } = await supabase
+  const hoje = new Date()
+  const ano = hoje.getFullYear()
+  const mes = String(hoje.getMonth() + 1).padStart(2, '0')
+  const dia = String(hoje.getDate()).padStart(2, '0')
+  const inicioDia = `${ano}-${mes}-${dia}T03:00:00+00:00`
+  const fimDia = `${ano}-${mes}-${dia}T26:59:59+00:00`
+
+  const { data, error } = await supabase
     .from('appointments')
     .select(`*, services(name, price_cents, duration_min), barbers(name), barbershops(name)`)
-    .gte('scheduled_at', '2026-04-18T00:00:00+00:00')
-    .lt('scheduled_at', '2026-04-19T00:00:00+00:00')
+    .gte('scheduled_at', inicioDia)
+    .lt('scheduled_at', fimDia)
     .order('scheduled_at')
 
+  console.log('dados:', data)
+  console.log('erro:', error)
   setAppointments(data || [])
   setLoading(false)
 }
