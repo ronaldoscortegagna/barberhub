@@ -17,19 +17,11 @@ export default function Dashboard() {
   }, [])
 
 async function load() {
-  const hoje = new Date()
-  const ano = hoje.getFullYear()
-  const mes = String(hoje.getMonth() + 1).padStart(2, '0')
-  const dia = String(hoje.getDate()).padStart(2, '0')
-  const inicioDia = `${ano}-${mes}-${dia}T03:00:00+00:00`
-  const fimDia = `${ano}-${mes}-${dia}T26:59:59+00:00`
-
   const { data, error } = await supabase
     .from('appointments')
     .select(`*, services(name, price_cents, duration_min), barbers(name), barbershops(name)`)
-    .gte('scheduled_at', inicioDia)
-    .lt('scheduled_at', fimDia)
-    .order('scheduled_at')
+    .order('scheduled_at', { ascending: false })
+    .limit(20)
 
   console.log('dados:', data)
   console.log('erro:', error)
