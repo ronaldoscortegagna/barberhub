@@ -17,7 +17,7 @@ export default function BookingPage() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   useEffect(() => {
-    const check = () => setIsMobile(window.innerWidth <= 768)
+    const check = () => setIsMobile(window.innerWidth < 769)
     check()
     window.addEventListener('resize', check)
     return () => window.removeEventListener('resize', check)
@@ -71,7 +71,7 @@ export default function BookingPage() {
   const imgs = [
     'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=500&q=80',
     'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=500&q=80',
-    'https://images.unsplash.com/photo-1621605815971-8f5b62cb4ca3?w=500&q=80',
+    'https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=500&q=80',
     'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=500&q=80',
   ]
 
@@ -101,7 +101,7 @@ export default function BookingPage() {
             <span style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '18px', fontWeight: '700', color: '#fff', letterSpacing: '1px' }}>{shop.name}</span>
           </a>
 
-          {/* Desktop links */}
+          {/* Desktop links — só aparece se NÃO for mobile */}
           {!isMobile && (
             <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
               {navLinks.map(l => (
@@ -111,10 +111,20 @@ export default function BookingPage() {
                 </a>
               ))}
               <a href="#agendar"
-                style={{ background: RED, color: '#fff', padding: '9px 22px', borderRadius: '8px', fontSize: '14px', fontWeight: '600', fontFamily: 'Inter, sans-serif', transition: 'background 0.2s' }}>
+                style={{ background: RED, color: '#fff', padding: '9px 22px', borderRadius: '8px', fontSize: '14px', fontWeight: '600', fontFamily: 'Inter, sans-serif' }}>
                 Agendar
               </a>
             </div>
+          )}
+
+          {/* Hamburguer — só aparece se FOR mobile */}
+          {isMobile && (
+           <button onClick={() => setMenuOpen(!menuOpen)}
+              style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: '8px', display: 'flex', flexDirection: 'column', gap: '5px' }}>
+                <span style={{ display: 'block', width: '24px', height: '2px', background: '#fff', borderRadius: '2px', transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
+                <span style={{ display: 'block', width: '24px', height: '2px', background: '#fff', borderRadius: '2px', opacity: menuOpen ? 0 : 1, transition: 'all 0.3s' }} />
+                <span style={{ display: 'block', width: '24px', height: '2px', background: '#fff', borderRadius: '2px', transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }} />
+            </button>
           )}
 
           {/* Hamburguer */}
