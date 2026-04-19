@@ -69,7 +69,7 @@ export default function BookingPage() {
           text-shadow: 0 2px 40px rgba(192,57,43,0.5);
           line-height: 1;
           font-weight: 900;
-          font-style: italic;
+          font-style: normal;
         }
         .h2-title {
           font-family: 'Cormorant Garamond', serif;
@@ -103,6 +103,14 @@ export default function BookingPage() {
         .card-svc:hover { border-color: #c0392b !important; transform: translateY(-5px); }
 
         nav a:hover { color: #fff !important; }
+
+        @media (max-width: 768px) {
+          nav { padding: 0.75rem 1rem !important; }
+          nav div:nth-child(2) { display: none; }
+          .mobile-menu { display: flex !important; }
+          .grid-2 { grid-template-columns: 1fr !important; }
+          .card-svc { min-width: 100% !important; }
+        }
       `}</style>
 
       {/* ── NAV ── */}
@@ -122,6 +130,11 @@ export default function BookingPage() {
             Agendar
           </a>
         </div>
+        <a href="#agendar" className="btn-red f-sans"
+          style={{ display: 'none', color: '#fff', padding: '8px 16px', borderRadius: '8px', fontSize: '14px', fontWeight: '600' }}
+          id="mobile-cta">
+          Agendar
+        </a>
       </nav>
 
       {/* ── HERO ── */}
@@ -133,37 +146,33 @@ export default function BookingPage() {
           <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at center,rgba(192,57,43,0.1) 0%,transparent 70%)' }} />
         </div>
 
-        <div style={{ position: 'relative', zIndex: 2, animation: 'fadeIn 0.9s ease' }}>
-          {/* Logo hero */}
-          <img src="/logo.png" alt="Barbearia Ries"
-            style={{ width: '220px', height: '220px', objectFit: 'contain', marginBottom: '1.5rem', filter: 'drop-shadow(0 0 40px rgba(192,57,43,0.55))' }} />
+        <div style={{ position: 'relative', zIndex: 2, animation: 'fadeIn 0.9s ease', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
 
-          {/* Badge */}
+          <img src="/logo.png" alt="Barbearia Ries"
+            style={{ width: '180px', height: '180px', objectFit: 'contain', marginBottom: '1.5rem', filter: 'drop-shadow(0 0 40px rgba(192,57,43,0.55))' }} />
+
           <div className="f-serif" style={{ display: 'inline-block', background: RED_BG, color: RED, fontSize: '13px', fontWeight: '600', padding: '6px 20px', borderRadius: '40px', marginBottom: '1.25rem', border: `1px solid ${RED_DARK}`, letterSpacing: '4px', textTransform: 'uppercase' }}>
-            Cortes & Barba Premium
+    Cortes & Barba Premium
           </div>
 
-          {/* H1 gótico vermelho */}
-          <h1 className="h1-title" style={{ fontSize: 'clamp(56px, 13vw, 120px)', marginBottom: '0.75rem' }}>
+          <h1 className="h1-title" style={{ fontSize: 'clamp(42px, 10vw, 100px)', marginBottom: '0.75rem', padding: '0 1rem' }}>
             {shop.name}
           </h1>
 
-          {/* Linha decorativa */}
           <div style={{ width: '80px', height: '2px', background: `linear-gradient(90deg,transparent,${RED},transparent)`, margin: '0 auto 1.25rem' }} />
 
-          {/* Subtítulo serifado */}
-          <p className="h2-title" style={{ fontSize: 'clamp(15px, 2.5vw, 20px)', color: '#aaa', marginBottom: '0.5rem', letterSpacing: '3px' }}>
-            CORTES · BARBA · BARBOTERAPIA
-          </p>
-          <p className="f-sans" style={{ fontSize: '14px', color: '#555', marginBottom: '2.5rem' }}>Massaranduba — SC</p>
+            <p className="h2-title" style={{ fontSize: 'clamp(13px, 2vw, 18px)', color: '#aaa', marginBottom: '0.5rem', letterSpacing: '3px', padding: '0 1rem' }}>
+              CORTES · BARBA · BARBOTERAPIA
+            </p>
+            <p className="f-sans" style={{ fontSize: '14px', color: '#555', marginBottom: '2.5rem' }}>Massaranduba — SC</p>
 
-          <div style={{ display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap', padding: '0 1rem' }}>
             <a href="#agendar" className="btn-red f-sans"
-              style={{ color: '#fff', padding: '16px 42px', borderRadius: '10px', fontSize: '16px', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+              style={{ color: '#fff', padding: '14px 36px', borderRadius: '10px', fontSize: '15px', fontWeight: '700', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
               📅 Agendar agora
             </a>
             <a href="#servicos" className="f-sans"
-              style={{ background: 'transparent', color: '#fff', border: '1px solid #2a2a2a', padding: '16px 36px', borderRadius: '10px', fontSize: '16px' }}>
+              style={{ background: 'transparent', color: '#fff', border: '1px solid #2a2a2a', padding: '14px 30px', borderRadius: '10px', fontSize: '15px' }}>
               Ver serviços
             </a>
           </div>
