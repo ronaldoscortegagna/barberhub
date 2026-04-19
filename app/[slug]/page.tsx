@@ -105,17 +105,17 @@ export default function BookingPage() {
         .hamburger span { display: block; width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: all 0.3s; }
         .mobile-menu { display: none; flex-direction: column; gap: 0; animation: slideDown 0.2s ease; }
 
+        .desktop-nav { display: flex !important; }
+        .hamburger-btn { display: none !important; }
+
         @media (max-width: 768px) {
-          .desktop-menu { display: none !important; }
-          .hamburger { display: flex !important; }
-          .mobile-menu { display: flex !important; }
-          .about-grid { grid-template-columns: 1fr !important; }
-          .loc-grid { grid-template-columns: 1fr !important; }
-          .stats-grid { grid-template-columns: repeat(2, 1fr) !important; }
-          .map-wrap { height: 280px !important; }
-          .hero-logo { width: 140px !important; height: 140px !important; }
-          .hero-h1 { font-size: clamp(38px, 12vw, 72px) !important; }
-        }
+        .desktop-nav { display: none !important; }
+        .hamburger-btn { display: flex !important; }
+        .about-grid { grid-template-columns: 1fr !important; }
+        .loc-grid { grid-template-columns: 1fr !important; }
+        .stats-grid { grid-template-columns: repeat(2,1fr) !important; }
+        .map-wrap { height: 280px !important; }
+      }
       `}</style>
 
       {/* ── NAV ── */}
@@ -127,37 +127,41 @@ export default function BookingPage() {
             <span className="f-serif" style={{ fontSize: '18px', fontWeight: '700', color: '#fff', letterSpacing: '1px' }}>{shop.name}</span>
           </a>
 
-          {/* Desktop menu */}
-          <div className="desktop-menu">
-            {navLinks.map(l => <a key={l.href} href={l.href} className="nav-link">{l.label}</a>)}
-            <a href="#agendar" className="btn-red f-sans" style={{ color: '#fff', padding: '9px 22px', borderRadius: '8px', fontSize: '14px', fontWeight: '600' }}>Agendar</a>
-          </div>
-
-          {/* Hamburguer */}
-          <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-            <span style={{ transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
-            <span style={{ opacity: menuOpen ? 0 : 1 }} />
-            <span style={{ transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }} />
-          </div>
+      {/* Links desktop — escondidos em mobile via CSS */}
+        <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }} className="desktop-nav">
+          {navLinks.map(l => <a key={l.href} href={l.href} className="nav-link">{l.label}</a>)}
+          <a href="#agendar" className="btn-red f-sans" style={{ color: '#fff', padding: '9px 22px', borderRadius: '8px', fontSize: '14px', fontWeight: '600' }}>Agendar</a>
         </div>
 
-        {/* Mobile menu */}
-        {menuOpen && (
-          <div className="mobile-menu" style={{ background: '#0d0d0d', borderTop: `1px solid ${RED_DARK}` }}>
-            {navLinks.map(l => (
-              <a key={l.href} href={l.href} className="f-sans" onClick={() => setMenuOpen(false)}
-                style={{ padding: '1rem 1.5rem', color: '#ccc', fontSize: '16px', borderBottom: '1px solid #1a1a1a' }}>
-                {l.label}
-              </a>
-            ))}
-            <div style={{ padding: '1rem 1.5rem' }}>
-              <a href="#agendar" className="btn-red f-sans" onClick={() => setMenuOpen(false)}
-                style={{ display: 'block', textAlign: 'center', color: '#fff', padding: '12px', borderRadius: '8px', fontSize: '15px', fontWeight: '700' }}>
-                Agendar agora
-              </a>
-            </div>
+      {/* Botão hamburguer */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          className="hamburger-btn"
+          style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: '8px', display: 'flex', flexDirection: 'column', gap: '5px' }}>
+          <span style={{ display: 'block', width: '24px', height: '2px', background: '#fff', borderRadius: '2px', transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
+          <span style={{ display: 'block', width: '24px', height: '2px', background: '#fff', borderRadius: '2px', transition: 'all 0.3s', opacity: menuOpen ? 0 : 1 }} />
+          <span style={{ display: 'block', width: '24px', height: '2px', background: '#fff', borderRadius: '2px', transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }} />
+        </button>
+      </div>
+
+    {/* Menu mobile */}
+      {menuOpen && (
+        <div style={{ background: '#0d0d0d', borderTop: `1px solid ${RED_DARK}` }}>
+          {navLinks.map(l => (
+            <a key={l.href} href={l.href} onClick={() => setMenuOpen(false)}
+            className="f-sans"
+            style={{ display: 'block', padding: '1rem 1.5rem', color: '#ccc', fontSize: '16px', borderBottom: '1px solid #1a1a1a' }}>
+            {l.label}
+            </a>
+          ))}
+        <div style={{ padding: '1rem 1.5rem' }}>
+          <a href="#agendar" className="btn-red f-sans" onClick={() => setMenuOpen(false)}
+            style={{ display: 'block', textAlign: 'center', color: '#fff', padding: '12px', borderRadius: '8px', fontSize: '15px', fontWeight: '700' }}>
+            Agendar agora
+          </a>
           </div>
-        )}
+      </div>
+      )}
       </nav>
 
       {/* ── HERO ── */}
