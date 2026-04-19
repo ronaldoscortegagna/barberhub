@@ -195,7 +195,7 @@ export default function BookingPage() {
       {/* NÚMEROS */}
       <div style={{ background: RED_DARK, padding: '2.5rem 1.5rem', borderTop: `1px solid ${RED}`, borderBottom: `1px solid ${RED}` }}>
         <div style={{ maxWidth: '800px', margin: '0 auto', display: 'grid', gridTemplateColumns: isMobile ? 'repeat(2,1fr)' : 'repeat(4,1fr)', gap: '1.5rem', textAlign: 'center' }}>
-          {[['1.600+','Seguidores'],['5★','Avaliação'],['+3 anos','Experiência'],['100%','Satisfação']].map(([num, label]) => (
+          {[['1.600+','Seguidores'],['5★','Avaliação'],['+10 anos','Experiência'],['100%','Satisfação']].map(([num, label]) => (
             <div key={label}>
               <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: 'clamp(22px,4vw,30px)', color: '#fff', fontWeight: 600 }}>{num}</div>
               <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.55)', marginTop: '4px', textTransform: 'uppercase', letterSpacing: '2px' }}>{label}</div>
@@ -226,7 +226,7 @@ export default function BookingPage() {
             <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=600&q=80" alt="barbearia"
               style={{ width: '100%', height: '360px', objectFit: 'cover', borderRadius: '16px', opacity: 0.75 }} />
             <div style={{ position: 'absolute', bottom: '-16px', right: isMobile ? '0' : '-16px', background: RED, borderRadius: '12px', padding: '1rem 1.5rem', textAlign: 'center' }}>
-              <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '22px', fontWeight: 700, color: '#fff' }}>+3 anos</div>
+              <div style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '22px', fontWeight: 700, color: '#fff' }}>+10 anos</div>
               <div style={{ fontSize: '12px', color: 'rgba(255,255,255,0.75)' }}>de experiência</div>
             </div>
           </div>
