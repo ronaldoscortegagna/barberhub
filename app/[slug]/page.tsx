@@ -361,19 +361,19 @@ export default function BookingPage() {
         <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(2,1fr)', gap: '2rem', alignItems: 'start' }}>
           <div style={{ display: 'grid', gap: '12px' }}>
             {[
-              { icon: '📍', titulo: 'Endereço', desc: shop.address },
-              { icon: '📞', titulo: 'Telefone / WhatsApp', desc: '(47) 99786-0030' },
-              { icon: '🕐', titulo: 'Horário', desc: 'Seg–Sex: 9h às 20h | Sáb: 9h às 18h' },
-              { icon: '🍺', titulo: 'Diferencial', desc: 'Atendimento com cerveja gelada!' },
+              { icon: '▲', titulo: 'Endereço', desc: shop.address },
+              { icon: '☏', titulo: 'Telefone / WhatsApp', desc: '(47) 99786-0030' },
+              { icon: '◷', titulo: 'Horário', desc: 'Seg–Sex: 9h às 20h | Sáb: 9h às 18h' },
+              { icon: '★', titulo: 'Diferencial', desc: 'Atendimento com cerveja gelada!' },
             ].map((item, i) => (
               <div key={i} style={{ background: '#111', border: '1px solid #1a1a1a', borderRadius: '12px', padding: '1rem 1.25rem', display: 'flex', gap: '12px' }}>
-                <span style={{ fontSize: '20px', flexShrink: 0 }}>{item.icon}</span>
+                <span style={{ fontSize: '18px', flexShrink: 0, color: RED }}>{item.icon}</span>
                 <div>
                   <p style={{ fontSize: '10px', color: '#555', marginBottom: '3px', textTransform: 'uppercase', letterSpacing: '2px' }}>{item.titulo}</p>
                   <p style={{ fontFamily: 'Cormorant Garamond, serif', fontSize: '15px', fontWeight: 500, color: '#ccc' }}>{item.desc}</p>
                 </div>
               </div>
-            ))}
+      ))}
             <a href="https://www.instagram.com/barbeariaries/" target="_blank" rel="noreferrer"
               style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px', background: 'linear-gradient(135deg,#833ab4,#fd1d1d,#fcb045)', color: '#fff', padding: '14px', borderRadius: '10px', fontSize: '15px', fontWeight: '700', fontFamily: 'Inter, sans-serif' }}>
               📷 Seguir no Instagram
