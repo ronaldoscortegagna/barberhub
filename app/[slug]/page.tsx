@@ -116,17 +116,7 @@ export default function BookingPage() {
               </a>
             </div>
           )}
-
-          {/* Hamburguer — só aparece se FOR mobile */}
-          {isMobile && (
-           <button onClick={() => setMenuOpen(!menuOpen)}
-              style={{ background: 'transparent', border: 'none', cursor: 'pointer', padding: '8px', display: 'flex', flexDirection: 'column', gap: '5px' }}>
-                <span style={{ display: 'block', width: '24px', height: '2px', background: '#fff', borderRadius: '2px', transition: 'all 0.3s', transform: menuOpen ? 'rotate(45deg) translate(5px, 5px)' : 'none' }} />
-                <span style={{ display: 'block', width: '24px', height: '2px', background: '#fff', borderRadius: '2px', opacity: menuOpen ? 0 : 1, transition: 'all 0.3s' }} />
-                <span style={{ display: 'block', width: '24px', height: '2px', background: '#fff', borderRadius: '2px', transition: 'all 0.3s', transform: menuOpen ? 'rotate(-45deg) translate(5px, -5px)' : 'none' }} />
-            </button>
-          )}
-
+          
           {/* Hamburguer */}
           {isMobile && (
             <button onClick={() => setMenuOpen(!menuOpen)}
