@@ -67,7 +67,7 @@ export default function BookingPage() {
       {/* NAV */}
       <nav style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 100, background: 'rgba(8,8,8,0.95)', borderBottom: `1px solid ${RED_DARK}`, padding: '1rem 2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', backdropFilter: 'blur(10px)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <div style={{ width: '36px', height: '36px', background: RED, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '18px' }}>✂️</div>
+          <img src="/logo.png" alt="logo" style={{ width: '48px', height: '48px', objectFit: 'contain' }} />
           <span style={{ fontSize: '18px', fontWeight: '700', color: '#fff', letterSpacing: '-0.5px' }}>{shop.name}</span>
         </div>
         <div style={{ display: 'flex', gap: '24px', alignItems: 'center' }}>
@@ -83,6 +83,9 @@ export default function BookingPage() {
       {/* HERO */}
       <div style={{ position: 'relative', height: '100vh', minHeight: '650px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center', padding: '2rem', paddingTop: '5rem' }}>
         <div style={{ position: 'absolute', inset: 0, overflow: 'hidden' }}>
+          <div style={{ marginBottom: '2rem' }}>
+            <img src="/logo.png" alt="logo" style={{ width: '140px', height: '140px', objectFit: 'contain' }} />
+          </div>
           <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1400&q=80" alt="barbearia"
             style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.25 }} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(8,8,8,0.4) 0%, rgba(8,8,8,0.7) 50%, rgba(8,8,8,1) 100%)' }} />
