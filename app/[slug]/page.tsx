@@ -249,7 +249,7 @@ export default function BookingPage() {
               const imgs = [
                 'https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=500&q=80',
                 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=500&q=80',
-                'https://images.unsplash.com/premium_photo-1661492238403-23e003b00d91',
+                'https://images.unsplash.com/photo-1701885183616-cf00e2db1a3b?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                 'https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=500&q=80',
               ]
               return (
