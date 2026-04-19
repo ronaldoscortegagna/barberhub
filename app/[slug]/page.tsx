@@ -54,7 +54,7 @@ export default function BookingPage() {
   return (
     <div style={{ background: '#080808', color: '#f0f0f0' }}>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap');
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
         a { text-decoration: none; }
@@ -64,10 +64,12 @@ export default function BookingPage() {
         .f-sans    { font-family: 'Inter', sans-serif; }
 
         .h1-title {
-          font-family: 'UnifrakturMaguntia', cursive;
+          font-family: 'Playfair Display', serif;
           color: #c0392b;
           text-shadow: 0 2px 40px rgba(192,57,43,0.5);
           line-height: 1;
+          font-weight: 900;
+          font-style: italic;
         }
         .h2-title {
           font-family: 'Cormorant Garamond', serif;
