@@ -116,7 +116,7 @@ export default function BookingPage() {
               </a>
             </div>
           )}
-          
+
           {/* Hamburguer */}
           {isMobile && (
             <button onClick={() => setMenuOpen(!menuOpen)}
@@ -158,7 +158,7 @@ export default function BookingPage() {
 
         <div style={{ position: 'relative', zIndex: 2, animation: 'fadeIn 0.9s ease', width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
           <img src="/logo.png" alt="logo"
-            style={{ width: isMobile ? '140px' : '180px', height: isMobile ? '140px' : '180px', objectFit: 'contain', marginBottom: '1.5rem', filter: 'drop-shadow(0 0 40px rgba(192,57,43,0.55))', display: 'block', marginLeft: 'auto', marginRight: 'auto' }} />
+            style={{ width: isMobile ? '240px' : '280px', height: isMobile ? '240px' : '280px', objectFit: 'contain', marginBottom: '1.5rem', filter: 'drop-shadow(0 0 40px rgba(192,57,43,0.55))', display: 'block', marginLeft: 'auto', marginRight: 'auto' }} />
 
           <div style={{ display: 'inline-block', background: RED_BG, color: RED, fontSize: '12px', fontWeight: '600', fontFamily: 'Cormorant Garamond, serif', padding: '6px 20px', borderRadius: '40px', marginBottom: '1.25rem', border: `1px solid ${RED_DARK}`, letterSpacing: '4px', textTransform: 'uppercase' }}>
             Cortes & Barba Premium
